@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.SpaServices.Webpack;
+using VueCliMiddleware;
+using Microsoft.AspNetCore.SpaServices;
 
 namespace FD
 {
@@ -25,7 +28,9 @@ namespace FD
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSpaStaticFiles(opt => opt.RootPath = "wwwroot/dist");
             services.AddControllers();
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +41,10 @@ namespace FD
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UsePathBase("/optionalpath");
+            app.UseSpaStaticFiles();
+            app.UseRouting();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -45,6 +54,19 @@ namespace FD
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+
+                endpoints.MapToVueCliProxy(
+                    "{*path}",
+                    new SpaOptions { SourcePath = "wwwroot" },
+                    npmScript: (System.Diagnostics.Debugger.IsAttached) ? "serve" : null,
+                    regex: "Compiled successfully",
+                    forceKill: true
+                    );
             });
         }
     }
