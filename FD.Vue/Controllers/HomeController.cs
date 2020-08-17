@@ -33,7 +33,23 @@ namespace FD.Vue.Controllers
             return Ok(Items);
            
         }
-        
+
+        [HttpGet]
+
+        public IActionResult Test1()
+        {
+            List<string> Items = new List<string>();
+            //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJEZXBhcnRNZW50IjoiIiwiSXNPblVzZSI6IkZhbHNlIiwiUGhvbmUiOiIiLCJVc2VyQ29kZSI6IiIsIlVzZXJOYW1lIjoi5pyx6ZuEIiwibmJmIjoxNTk3NjQzNDQzLCJleHAiOjE1OTc2NDcwNDMsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMSJ9.M_d7XNtB_04S_QgyhrIoLc1yc6eLPThazD2sM379raQ"
+            System.Security.Claims.ClaimsPrincipal User = HttpContext.User;
+            foreach (var item in User.Claims)
+            {
+                Items.Add(item.Type);
+                Items.Add(item.Value);
+            }
+            return Ok(Items);
+
+        }
+
 
     }
 }

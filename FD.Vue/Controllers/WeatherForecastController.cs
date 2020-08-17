@@ -44,9 +44,10 @@ namespace FD.Vue.Controllers
         }
         [HttpPost]
 
-        public string Token([FromForm] ClaimModel models)
+        public string Token([FromForm] LoginModel models)
         {
             JwtAccess jwt = new JwtAccess();
+            models.IsOnUse = true;
             return jwt.SetToken(models);
 
         }
@@ -68,11 +69,12 @@ namespace FD.Vue.Controllers
             };
             IdentityModelEventSource.ShowPII = true;
             //签名秘钥 可以放到json文件中
-            var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SecureKeySecureKeySecureKeySecureKeySecureKeySecureKey"));
+            var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobSectury.Secret));
 
             var token = new JwtSecurityToken(
-                   issuer: "https://www.cnblogs.com/chengtian",
-                   audience: "https://www.cnblogs.com/chengtian",
+
+                   issuer: GlobSectury.ValidIssuer,
+                   audience: GlobSectury.ValidAudience,
                    expires: DateTime.Now.AddHours(2),
                    claims: authClaims,
                    signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)

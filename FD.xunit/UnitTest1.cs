@@ -10,7 +10,7 @@ namespace FD.xunit
         public void Test1()
         {
             FD.Authorzation.Jwt.JwtAccess jwt = new Authorzation.Jwt.JwtAccess();
-            var data = new ClaimModel();
+            var data = new LoginModel();
             data.UserName = "÷Ï–€";
             var d= jwt.SetToken(data);
             var p = jwt.GetToken(d);

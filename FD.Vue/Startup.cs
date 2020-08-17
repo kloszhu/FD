@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using FD.Authorzation.Jwt;
 using FD.Authorzition.Jwt;
 using FD.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -52,14 +53,14 @@ namespace FD.Vue
                 options.RequireHttpsMetadata = false;
                 options.TokenValidationParameters = new TokenValidationParameters()
                 {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidAudience = "https://www.cnblogs.com/chengtian",
-                    ValidIssuer = "https://www.cnblogs.com/chengtian",
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SecureKeySecureKeySecureKeySecureKeySecureKeySecureKey"))
+                    ValidateIssuer = GlobSectury.ValidateIssuer,
+                    ValidateAudience = GlobSectury.ValidateAudience,
+                    ValidAudience = GlobSectury.ValidAudience,
+                    ValidIssuer = GlobSectury.ValidIssuer,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobSectury.Secret))
                 };
             });
-        
+
             //services.AddSingleton(typeof(IWebapiControllerActionService), typeof(WebapiControllerActionService));
             //services.AddSingleton(typeof(IActionDescriptorCollectionProvider), typeof(DefaultActionDescriptorCollectionProvider));
             services.AddSpaStaticFiles(configuration =>

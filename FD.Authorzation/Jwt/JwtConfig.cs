@@ -16,53 +16,22 @@ namespace FD.Authorzition.Jwt
     {
         public static IServiceCollection AddJwt(this IServiceCollection services) {
 
-            //services.AddAuthentication(options =>
-            //{
-            //    //认证middleware配置
-            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //})
-            //.AddJwtBearer(options =>
-            //{
-            //    options.TokenValidationParameters = new TokenValidationParameters
-            //    {
-            //        ValidateIssuerSigningKey = GlobSectury.ValidateIssuerSigningKey,
-            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobSectury.Secret)),
-
-            //        ValidateIssuer = GlobSectury.ValidateIssuer,
-            //        ValidIssuer = GlobSectury.ValidIssuer,
-
-            //        ValidateAudience = GlobSectury.ValidateAudience,
-            //        ValidAudience = GlobSectury.ValidAudience,
-
-            //        ValidateLifetime = GlobSectury.ValidateLifetime,
-
-            //        ClockSkew = GlobSectury.ClockSkew
-            //    };
-            //});
-
-            //添加身份验证
             services.AddAuthentication(options =>
             {
-                //认证middleware配置
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(o =>
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
             {
-                //jwt token参数设置
-                o.TokenValidationParameters = new TokenValidationParameters
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters()
                 {
-                    NameClaimType = JwtClaimTypes.Name,
-                    RoleClaimType = JwtClaimTypes.Role,
-                    //Token颁发机构
-                    ValidIssuer = GlobSectury.ValidIssuer,
-                    //颁发给谁
+                    ValidateIssuer = GlobSectury.ValidateIssuer,
+                    ValidateAudience = GlobSectury.ValidateAudience,
                     ValidAudience = GlobSectury.ValidAudience,
-                    //这里的key要进行加密
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobSectury.Secret)),
-
-
+                    ValidIssuer = GlobSectury.ValidIssuer,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobSectury.Secret))
                 };
             });
 
@@ -75,6 +44,7 @@ namespace FD.Authorzition.Jwt
 
         public static IApplicationBuilder UseJwt(this IApplicationBuilder app)
         {
+            app.UseAuthentication();
             app.UseAuthorization();
             return app;
         }

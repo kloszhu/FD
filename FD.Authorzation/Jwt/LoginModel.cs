@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FD.Authorzation.Jwt
 {
-    public class ClaimModel
+    public class LoginModel
     {
         public string UserName { get; set; } = "";
         public string UserCode { get; set; } = "";
