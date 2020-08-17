@@ -55,6 +55,7 @@ namespace FD.Vue.Controllers
 
         [HttpPost]
         [Route("login")]
+        [Obsolete]
         public IActionResult Login([FromBody] LoginInput input)
         {
             //从数据库验证用户名，密码 
