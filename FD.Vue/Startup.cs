@@ -67,15 +67,25 @@ namespace FD.Vue
             {
                 configuration.RootPath = "wwwroot";
             });
-            services.AddCors(options => options.AddPolicy("CorsPolicy",
-          builder =>
-          {
-              builder.AllowAnyMethod()
-                  .SetIsOriginAllowed(_ => true)
-                  .AllowAnyHeader()
-                  .AllowCredentials();
-          }));
-            
+            //跨域
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder
+                    //允许任何来源的主机访问
+                    //TODO: 新的 CORS 中间件已经阻止允许任意 Origin，即设置 AllowAnyOrigin 也不会生效
+                    //AllowAnyOrigin()
+                    //设置允许访问的域
+                    //TODO: 目前.NET Core 3.1 有 bug, 暂时通过 SetIsOriginAllowed 解决
+                    //.WithOrigins(Configuration["CorsConfig:Origin"])
+                    .SetIsOriginAllowed(t => true)
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();
+                });
+            });
+
             services.AddFDSwagger();
             services.AddControllers();
 
@@ -125,7 +135,7 @@ namespace FD.Vue
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseVueCli(npmScript: "serve");
+                    spa.UseVueCli(npmScript: "serve",9999);
                 }
 
             });
