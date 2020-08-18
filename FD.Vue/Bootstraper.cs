@@ -13,7 +13,6 @@ namespace FD.Vue
     {
         public static void UseVue8080(this IApplicationBuilder app) {
             string basePath = Directory.GetCurrentDirectory();
-            String ServerAddress = app.ServerFeatures.Get<IServerAddressesFeature>().Addresses.FirstOrDefault();
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(
 @$"
@@ -21,10 +20,10 @@ namespace FD.Vue
 ENV = 'server'
 
 # base api
-VUE_APP_BASE_API = '{ServerAddress??"http://localhost:5000"}'
+VUE_APP_BASE_API = 'http://localhost:5010'
 ");
         
-            File.WriteAllText(Path.Combine(basePath, "wwwroot", ".env.server"), stringBuilder.ToString());       
+            File.WriteAllText(Path.Combine(basePath, "wwwroot", ".env.serverment"), stringBuilder.ToString());       
         }
 
     }

@@ -21,7 +21,7 @@ namespace FD.Authorzation.Jwt
         //           new Claim("UserCode",claim.UserCode ),
         //            new Claim("UserName",claim.UserName ),
         //    };
- 
+
 
         //    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobSectury.Secret));
 
@@ -43,7 +43,22 @@ namespace FD.Authorzation.Jwt
 
         //    return new JwtSecurityTokenHandler().WriteToken(token);
         //}
+        public string logout() {
+            var authClaims = new Claim[] { };
+            Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
+            //签名秘钥 可以放到json文件中
+            var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobSectury.Secret));
 
+            var token = new JwtSecurityToken(
+
+                   issuer: GlobSectury.ValidIssuer,
+                   audience: GlobSectury.ValidAudience,
+                   expires: DateTime.Now.AddHours(2),
+                   claims: authClaims,
+                   signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
+                   );
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
         public string SetToken(LoginModel userinfo) {
             var authClaims = new Claim[] {
                         new Claim(JwtClaimTypes.Audience,GlobSectury.ValidAudience),

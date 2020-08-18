@@ -32,5 +32,11 @@ namespace FD.Vue.Controllers
             }.ToResult());
 
         }
+
+        public IActionResult logout() {
+            JwtAccess jwt = new JwtAccess();
+            jwt.logout();
+            return Ok("注销成功1".ToResult(message: "注销成功"));
+        }
     }
 }
