@@ -13,8 +13,7 @@ namespace FD.Vue
     {
         public static void UseVue8080(this IApplicationBuilder app) {
             string basePath = Directory.GetCurrentDirectory();
-            String ServerAddress = app.ServerFeatures.Get<IServerAddressesFeature>().Addresses.FirstOrDefault();
-            File.WriteAllText(Path.Combine(basePath, "clientapp","host.js"), $"var basepath='{ServerAddress??"http://localhost:5010"}'");       
+            File.WriteAllText(Path.Combine(basePath, "wwwroot", ".env.serverment"), $"var basepath='http://localhost:5010'");       
         }
 
     }

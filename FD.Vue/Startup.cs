@@ -65,7 +65,7 @@ namespace FD.Vue
             //services.AddSingleton(typeof(IActionDescriptorCollectionProvider), typeof(DefaultActionDescriptorCollectionProvider));
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp";
+                configuration.RootPath = "wwwroot";
             });
             services.AddCors(options => options.AddPolicy("CorsPolicy",
           builder =>
@@ -96,8 +96,13 @@ namespace FD.Vue
             app.UseMiddleware<CorsMiddleware>();
 
             app.UseRouting();
+
+            #region 这两个仔必须放这个中间，路由启动之后，端口映射之前
+
             app.UseAuthentication();
             app.UseAuthorization();
+            #endregion
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
@@ -114,7 +119,7 @@ namespace FD.Vue
             app.UseSpa(spa =>
             {
                 if (env.IsDevelopment())
-                    spa.Options.SourcePath = "ClientApp";
+                    spa.Options.SourcePath = "wwwroot";
                 else
                     spa.Options.SourcePath = "dist";
 

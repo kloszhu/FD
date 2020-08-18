@@ -1,1 +1,1 @@
-var basepath='http://localhost:5000'
+var basepath='http://*:5010'
