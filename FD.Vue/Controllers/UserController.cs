@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using FD.Tool;
 namespace FD.Vue.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("ele/[controller]/[action]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -19,7 +19,7 @@ namespace FD.Vue.Controllers
            string token= jwt.SetToken(new LoginModel { UserCode = loginView. username, UserName = loginView.username, DepartMent = loginView. password, IsOnUse = true, Phone = "18806446088" });
             return Ok(token.ToResult());
         }
-
+        [HttpGet]
         public IActionResult info()
         {
 
@@ -32,7 +32,7 @@ namespace FD.Vue.Controllers
             }.ToResult());
 
         }
-
+        [HttpPost]
         public IActionResult logout() {
             JwtAccess jwt = new JwtAccess();
             jwt.logout();

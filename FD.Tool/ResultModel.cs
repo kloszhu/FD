@@ -10,6 +10,8 @@ namespace FD.Tool
         非法Token= 50008,
         非法重复登录= 50012,
         Token失效= 50014,
+        禁止访问=403,
+        无权限=401,
         其他
     }
     public class ResultModel

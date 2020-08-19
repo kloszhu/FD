@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using FD.Authorzation.Jwt;
 using FD.Authorzition.Jwt;
 using FD.Swagger;
+using FD.Vue.Conventions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
@@ -87,7 +88,9 @@ namespace FD.Vue
             });
 
             services.AddFDSwagger();
-            services.AddControllers();
+            services.AddControllers(p=> {
+                p.Conventions.Add(new ApiConvention());
+            });
 
 
     
@@ -115,6 +118,7 @@ namespace FD.Vue
             
             app.UseEndpoints(endpoints =>
             {
+               
                 endpoints.MapControllers();
             });
 
@@ -126,19 +130,19 @@ namespace FD.Vue
             #region ±àÒëVue
             app.UseVue8080();
             app.UseSpaStaticFiles();
-            app.UseSpa(spa =>
-            {
-                if (env.IsDevelopment())
-                    spa.Options.SourcePath = "wwwroot";
-                else
-                    spa.Options.SourcePath = "dist";
+            //app.UseSpa(spa =>
+            //{
+            //    if (env.IsDevelopment())
+            //        spa.Options.SourcePath = "wwwroot";
+            //    else
+            //        spa.Options.SourcePath = "dist";
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseVueCli(npmScript: "serve",9999);
-                }
+            //    if (env.IsDevelopment())
+            //    {
+            //        spa.UseVueCli(npmScript: "serve",9999);
+            //    }
 
-            });
+            //});
             #endregion
 
 

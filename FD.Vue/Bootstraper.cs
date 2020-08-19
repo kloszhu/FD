@@ -16,14 +16,12 @@ namespace FD.Vue
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(
 @$"
-# just a flag
-ENV = 'server'
-
-# base api
-VUE_APP_BASE_API = 'http://localhost:5010'
+NODE_ENV=production
+VUE_APP_PREVIEW=false
+VUE_APP_API_BASE_URL = 'http://localhost:5010/'
 ");
         
-            File.WriteAllText(Path.Combine(basePath, "wwwroot", ".env.serverment"), stringBuilder.ToString());       
+            File.WriteAllText(Path.Combine(basePath, "wwwroot", ".env"), stringBuilder.ToString());       
         }
 
     }

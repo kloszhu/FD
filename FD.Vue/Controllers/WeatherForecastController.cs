@@ -14,7 +14,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace FD.Vue.Controllers
 {
     [ApiController]
-    [Route("[controller]/[action]")]
+    [Route("ele/[controller]/[action]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -27,6 +27,12 @@ namespace FD.Vue.Controllers
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
+        }
+
+        [HttpPost]
+
+        public object TestOJBK([FromQuery]string Name, [FromBody]string Data) {
+            return Ok(new {name=Name,data=Data });
         }
 
         [HttpGet]

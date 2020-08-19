@@ -10,7 +10,7 @@ using System.IdentityModel.Tokens.Jwt;
 namespace FD.Vue.Controllers
 {
     [ApiController]
-    [Route("[controller]/[action]")]
+    [Route("ele/[controller]/[action]")]
     [Authorize]
     public class HomeController : ControllerBase
     {

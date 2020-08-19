@@ -1,0 +1,154 @@
+export let home = {
+  gettest: function()  
+{
+    return request({
+    url: '/ele/home/test',
+      method: 'get',
+      
+    })
+  },
+  gettest1: function()  
+{
+    return request({
+    url: '/ele/home/test1',
+      method: 'get',
+      
+    })
+  },
+}
+export let user = {
+  postlogin: function(parameter)  
+{
+    return request({
+    url: '/ele/user/login',
+      method: 'post',
+      data: parameter 
+    })
+  },
+  getinfo: function()  
+{
+    return request({
+    url: '/ele/user/info',
+      method: 'get',
+      
+    })
+  },
+  postlogout: function()  
+{
+    return request({
+    url: '/ele/user/logout',
+      method: 'post',
+      
+    })
+  },
+  getinfo: function()  
+{
+    return request({
+    url: '/user/info',
+      method: 'get',
+      
+    })
+  },
+  getnav: function()  
+{
+    return request({
+    url: '/user/nav',
+      method: 'get',
+      
+    })
+  },
+}
+export let weatherforecast = {
+  posttestojbk: function(parameter)  
+{
+    return request({
+    url: '/ele/weatherforecast/testojbk',
+      method: 'post',
+      data: parameter 
+    })
+  },
+  getget: function()  
+{
+    return request({
+    url: '/ele/weatherforecast/get',
+      method: 'get',
+      
+    })
+  },
+  posttoken: function(parameter)  
+{
+    return request({
+    url: '/ele/weatherforecast/token',
+      method: 'post',
+      data: parameter 
+    })
+  },
+  postlogin: function(parameter)  
+{
+    return request({
+    url: '/ele/weatherforecast/login',
+      method: 'post',
+      data: parameter 
+    })
+  },
+}
+export let account = {
+  postsms: function()  
+{
+    return request({
+    url: '/account/sms',
+      method: 'post',
+      
+    })
+  },
+  postsms_err: function()  
+{
+    return request({
+    url: '/account/sms_err',
+      method: 'post',
+      
+    })
+  },
+}
+export let auth = {
+  postlogin: function(parameter)  
+{
+    return request({
+    url: '/auth/login',
+      method: 'post',
+      data: parameter 
+    })
+  },
+  postlogout: function()  
+{
+    return request({
+    url: '/auth/logout',
+      method: 'post',
+      
+    })
+  },
+  postforgetpassword: function()  
+{
+    return request({
+    url: '/auth/forgetpassword',
+      method: 'post',
+      
+    })
+  },
+  postregister: function()  
+{
+    return request({
+    url: '/auth/register',
+      method: 'post',
+      
+    })
+  },
+  posttwostepcode: function()  
+{
+    return request({
+    url: '/auth/twostepcode',
+      method: 'post',
+      
+    })
+  },
+}
