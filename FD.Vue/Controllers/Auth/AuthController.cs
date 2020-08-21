@@ -28,7 +28,7 @@ namespace FD.Vue.Controllers.Auth
         {
             JwtAccess jwt = new JwtAccess();
             string token = jwt.SetToken(new LoginModel { UserCode = loginView.username, UserName = loginView.username, DepartMent = loginView.password, IsOnUse = true, Phone = "18806446088" });
-            return Ok(token.ToResult());
+            return Ok(new { Token = token , RoleId = "admin" }.ToAntResult());
         }
         [HttpPost]
         public IActionResult logout() {

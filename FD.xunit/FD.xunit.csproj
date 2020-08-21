@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Castle.Core" Version="4.4.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
@@ -33,6 +34,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FD.Authorzation\FD.Authorzation.csproj" />
+    <ProjectReference Include="..\FD.DapperExtention\FD.DapperExtention.csproj" />
+    <ProjectReference Include="..\FD.DI\FD.DI.csproj" />
   </ItemGroup>
 
 </Project>

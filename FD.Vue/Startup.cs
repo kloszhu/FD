@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FD.Authorzation.Jwt;
 using FD.Authorzition.Jwt;
+using FD.Entity;
 using FD.Swagger;
 using FD.Vue.Conventions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -86,7 +87,7 @@ namespace FD.Vue
                     .AllowCredentials();
                 });
             });
-
+            services.UseSqlLite();
             services.AddFDSwagger();
             services.AddControllers(p=> {
                 p.Conventions.Add(new ApiConvention());

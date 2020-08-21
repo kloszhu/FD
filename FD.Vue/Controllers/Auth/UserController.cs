@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using FD.Tool;
 namespace FD.Vue.Controllers.Auth
 {
     [Route("[controller]/[action]")]
@@ -14,7 +14,53 @@ namespace FD.Vue.Controllers.Auth
         [HttpGet]
         public IActionResult info()
         {
-            return Ok(new
+           
+           
+            var actions1 = new { Action = "add", DefaultCheck = false, Describe = "新增" };
+            var actions2 = new { Action = "query", DefaultCheck = false, Describe = "查询" };
+            var actions3 = new { Action = "get", DefaultCheck = false, Describe = "详情" };
+            var actions4 = new { Action = "update", DefaultCheck = false, Describe = "修改" };
+            var actions5 = new { Action = "delete", DefaultCheck = false, Describe = "删除" };
+
+            var actionslist = new[]
+            {
+                actions1,
+                actions2,
+                actions3,
+                actions4,
+                actions5
+            };
+
+            var actionEntitySetlist = new []
+            {
+                actions1,
+                actions2,
+                actions3,
+                actions4,
+                actions5
+            };
+          
+            var permissions = new 
+            {
+                RoleId = "admin",
+                PermissionId = "dashboard",
+                PermissionName = "仪表盘",
+                Action= actionslist,
+                ActionEntitySet= actionEntitySetlist
+            };
+            var _roleObj = new
+            {
+                Id = "admin",
+                Name = "管理员",
+                Describe = "拥有所有权限",
+                Status = "1",
+                CreatorId = "system",
+                CreateTime = "1497160610259",
+                Deleted = "0",
+                Permissions = new[] { permissions }
+            };
+
+            var user = new
             {
                 id = "4291d7da9005377ec9aec4a71ea837f",
                 name = "天野远子",
@@ -30,8 +76,10 @@ namespace FD.Vue.Controllers.Auth
                 merchantCode = "TLif2btpzg079h15bk",
                 deleted = 0,
                 roleId = "admin",
-                role = new[] { "admin", "supper" }
-            });
+                role = _roleObj
+            };
+           
+            return Ok(user.ToAntResult());
         }
 
         [HttpGet]
