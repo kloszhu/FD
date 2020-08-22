@@ -4,6 +4,8 @@ using System.Text;
 using Xunit;
 using FD.DI;
 using FD.DapperExtention;
+using System.Linq;
+
 namespace FD.xunit
 {
     public class TestDb
@@ -12,10 +14,10 @@ namespace FD.xunit
         public void DBTest() {
             IOC.Start().AddDapper().End();
            var service=  IOC.GetService<IDapperRepository>();
+            var schema = IOC.GetService<IDynamicRepository>();
             service.DbAccess.buffered = true;
             service.DbAccess.commandTimeout = 5;
-            var p= service.DbAccess.Query("SELECT * FROM B_case");
-           var d = service.DbAccess.Query("SELECT * FROM B_case");
+            var data=  schema.GetSchema().ToList();
         }
     }
 }

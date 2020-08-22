@@ -23,8 +23,8 @@ namespace FD.DapperExtention
          bool buffered { get; set; } 
          int? commandTimeout { get; set; }
          CommandType? commandType { get; set; }
-         
-         IEnumerable<object> Query(string sql);
+        IEnumerable<T> Query<T>(string sql);
+        IEnumerable<object> Query(string sql);
 
          Task<IEnumerable<object>> QueryAsync(Type type, string sql);
 

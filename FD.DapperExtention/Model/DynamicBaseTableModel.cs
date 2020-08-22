@@ -6,6 +6,7 @@ namespace FD.DapperExtention
 {
     public class DynamicBaseTableModel
     {
+        public string TABLE_CATALOG { get; set; }
         public string TABLE_SCHEMA { get; set; }
         public string TABLE_NAME { get; set; }
         public string AliseName { get; set; }

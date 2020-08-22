@@ -31,5 +31,10 @@ namespace FD.DapperExtention
         public virtual int Execute( string sql) {
             return _DbConnection.Execute(sql, param, transaction, commandTimeout, commandType);
         }
+
+        public IEnumerable<T> Query<T>(string sql)
+        {
+            return _DbConnection.Query<T>(sql, param, transaction, buffered, commandTimeout, commandType);
+        }
     }
 }
