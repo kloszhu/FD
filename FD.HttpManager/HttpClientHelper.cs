@@ -4,44 +4,36 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FD.Tool
+namespace FD.HttpManager
 {
     /// <summary>
     /// Summary: HttpClient公共类
     /// Author: Lee Liu
     /// Date: 20190114
     /// </summary>
-    public class HttpClientHelper
+    public class HttpClientHelper : IHttpClientHelper
     {
-        private static HttpClientHelper httpClientHelper = null;
-
-        private HttpClient httpClient;
-
         /// <summary>
         /// 构造方法私有，用于单例
         /// </summary>
-        private HttpClientHelper() { }
+        public HttpClientHelper()
+        {
+
+            //取消使用默认的Cookies
+            HttpClientHandler handler = new HttpClientHandler() { UseCookies = false };
+            httpClient = new HttpClient(handler);
+
+
+        }
+
+        private HttpClient httpClient;
+
+
 
         /// <summary>
         /// 获取当前类的实例
         /// </summary>
         /// <returns></returns>
-        public static HttpClientHelper GetInstance()
-        {
-            if (httpClientHelper != null)
-            {
-                return httpClientHelper;
-            }
-            else
-            {
-                HttpClientHelper httpClientHelper = new HttpClientHelper();
-
-                //取消使用默认的Cookies
-                HttpClientHandler handler = new HttpClientHandler() { UseCookies = false };
-                httpClientHelper.httpClient = new HttpClient(handler);
-                return httpClientHelper;
-            }
-        }
 
         /// <summary>
         /// Get方法请求
@@ -68,6 +60,7 @@ namespace FD.Tool
             HttpResponseMessage response = httpClient.SendAsync(request).Result;
             return response;
         }
+
 
         /// <summary>
         /// Get方法请求

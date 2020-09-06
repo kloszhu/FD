@@ -6,7 +6,7 @@ using Xunit;
 
 namespace FD.xunit
 {
-    public class UnitTest1
+    public class CommonTest
     {
         [Fact]
         public void Test1()

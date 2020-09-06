@@ -7,12 +7,16 @@ namespace FD.DapperExtention
     public interface IDynamicRepository
     {
         IEnumerable<DynamicBaseTableModel> GetSchema();
+
     }
 
     public class DynamicRepository : IDynamicRepository
     {
-        public IEnumerable<DynamicBaseTableModel> DbSchemas { get; set; }
-
+        public static  IEnumerable<DynamicBaseTableModel> DbSchemas { get; set; }
+        public DynamicRepository() {
+  
+        }
+  
         public IDynamicProvider provider { get; set; }
 
         public IEnumerable<DynamicBaseTableModel> GetSchema() {
