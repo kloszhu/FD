@@ -5,6 +5,9 @@ using MongoDB.Driver;
 using Newtonsoft.Json.Bson;
 using Newtonsoft.Json.Converters;
 using System.Linq;
+using MongoDB.Bson.IO;
+using Newtonsoft.Json;
+
 namespace FD.Mongo
 {
     public class MongoManager : IMongoManager
@@ -14,7 +17,7 @@ namespace FD.Mongo
         public IMongoCollection<BsonDocument> Collection { get; set; }
         public void init()
         {
-            MongoClient = new MongoClient("mongodb://localhost:27018");
+            MongoClient = new MongoClient("mongodb://localhost:27017");
             Database = MongoClient.GetDatabase("stock");
             Collection = Database.GetCollection<BsonDocument>("stocklist");
         }
@@ -28,11 +31,15 @@ namespace FD.Mongo
             Collection.InsertOne(document);
         }
 
-        public void Find()
+        public string Find()
         {
             BsonDocument elements = new BsonDocument();
-            var builder = Builders<BsonDocument>.Filter.Exists(a=>a.Elements.First(b=>b.Name=="data").Value!=null);
-            Collection.Find<BsonDocument>(builder);
+            var builder = Builders<BsonDocument>.Filter.Eq<int>("rt",6);
+            var data = Collection.Find<BsonDocument>(builder).ToList().ToDictionary(a=>a);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(data);
         }
+
+       
+
     }
 }
