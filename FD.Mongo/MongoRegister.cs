@@ -13,6 +13,6 @@ namespace FD.Mongo
         {
             buider.RegisterCommonInstance<MongoManager, IMongoManager>();               
             return buider;
-        }
+        } 
     }
 }
