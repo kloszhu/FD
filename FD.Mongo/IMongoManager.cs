@@ -11,6 +11,6 @@ namespace FD.Mongo
 
         void Add(string json);
         void init();
-        void Find();
+        string Find();
     }
 }

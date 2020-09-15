@@ -45,7 +45,7 @@ namespace FD.xunit
         }
         [Fact]
         public void GetMongo() {
-            mongoManager.Find();
+           var data= mongoManager.Find();
         }
 
         private string StockUrl(int page=1) {

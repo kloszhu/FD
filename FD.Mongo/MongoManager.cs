@@ -28,11 +28,13 @@ namespace FD.Mongo
             Collection.InsertOne(document);
         }
 
-        public void Find()
+        public string Find()
         {
             BsonDocument elements = new BsonDocument();
-            var builder = Builders<BsonDocument>.Filter.Exists(a=>a.Elements.First(b=>b.Name=="data").Value!=null);
-            Collection.Find<BsonDocument>(builder);
+            var builder = Builders<BsonDocument>.Filter.Eq<int>("rt", 6);
+            var filter = Builders<BsonDocument>.Filter.Eq<BsonDocument>("data", null);
+            List<BsonDocument> data =  Collection.FindAsync<BsonDocument>(builder).Result.ToList();
+            return Newtonsoft.Json.JsonConvert.SerializeObject( data,converters: new BsonObjectIdConverter());
         }
     }
 }
