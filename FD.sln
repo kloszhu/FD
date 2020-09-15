@@ -30,7 +30,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FD.DapperExtention", "FD.Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FD.DI", "FD.DI\FD.DI.csproj", "{8F50C7F1-CF88-458E-A775-9E63068C22BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FD.HttpManager", "FD.HttpManager\FD.HttpManager.csproj", "{4A6352C2-3B9F-4543-8133-5C36C79B6371}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FD.HttpManager", "FD.HttpManager\FD.HttpManager.csproj", "{4A6352C2-3B9F-4543-8133-5C36C79B6371}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FD.AutoEntity", "FD.AutoEntity\FD.AutoEntity.csproj", "{B5F1ACAE-D264-4836-B992-DB71628FDB2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,6 +88,10 @@ Global
 		{4A6352C2-3B9F-4543-8133-5C36C79B6371}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A6352C2-3B9F-4543-8133-5C36C79B6371}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A6352C2-3B9F-4543-8133-5C36C79B6371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5F1ACAE-D264-4836-B992-DB71628FDB2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F1ACAE-D264-4836-B992-DB71628FDB2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F1ACAE-D264-4836-B992-DB71628FDB2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F1ACAE-D264-4836-B992-DB71628FDB2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

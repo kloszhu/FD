@@ -82,6 +82,13 @@ namespace FD.DI
         }
 
 
+        public static ContainerBuilder RegisterStatic<Implementation, Interface>(this ContainerBuilder builders)
+        {
+            builders.RegisterType<Implementation>().As<Interface>().PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies).SingleInstance();
+            return builders;
+        }
+
+
         /// <summary>
         /// 泛型注入
         /// </summary>
