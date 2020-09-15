@@ -34,6 +34,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FD.Authorzation\FD.Authorzation.csproj" />
+    <ProjectReference Include="..\FD.AutoEntity\FD.AutoEntity.csproj" />
     <ProjectReference Include="..\FD.DapperExtention\FD.DapperExtention.csproj" />
     <ProjectReference Include="..\FD.DI\FD.DI.csproj" />
     <ProjectReference Include="..\FD.HttpManager\FD.HttpManager.csproj" />

@@ -124,13 +124,13 @@ namespace FD.AutoEntity
             if (model.Praent == null)
             {
                 tb = mb.DefineType(
-                model.moduleName,
+                model.className,
                  model.typeAttributes);
             }
             else
             {
                 tb = mb.DefineType(
-                   model.moduleName,
+                   model.className,
                     model.typeAttributes, model.Praent);
             }
             foreach (var item in model.propertyDefineModels)
@@ -188,9 +188,10 @@ namespace FD.AutoEntity
                 // PropertyBuilder. The property is now complete.
                 pbNumber.SetGetMethod(mbNumberGetAccessor);
                 pbNumber.SetSetMethod(mbNumberSetAccessor);
-                Type t = tb.CreateTypeInfo();
-                AutoEntityList.Add(t);
+          
             }
+            Type t = tb.CreateTypeInfo();
+            AutoEntityList.Add(t);
             //// Add a private field of type int (Int32).
             //FieldBuilder fbNumber = tb.DefineField(
             //    "m_number",
@@ -269,7 +270,7 @@ namespace FD.AutoEntity
             //methIL.Emit(OpCodes.Ret);
 
             // Finish the type.
-            
+
 
             // The following line saves the single-module assembly. This
             // requires AssemblyBuilderAccess to include Save. You can now
@@ -282,7 +283,7 @@ namespace FD.AutoEntity
             // Because AssemblyBuilderAccess includes Run, the code can be
             // executed immediately. Start by getting reflection objects for
             // the method and the property.
-           
+
         }
     }
 
