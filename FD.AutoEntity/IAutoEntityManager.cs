@@ -6,6 +6,6 @@ namespace FD.AutoEntity
     public interface IAutoEntityManager
     {
         List<Type> AutoEntityList { get;  }
-        void Create(AutoEntityManager.classDefineModel model);
+        void Create(classDefineModel model);
     }
 }
