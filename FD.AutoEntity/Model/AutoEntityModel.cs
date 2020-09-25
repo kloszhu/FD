@@ -13,6 +13,8 @@ namespace FD.AutoEntity
         public string moduleName { get; set; }
         public TypeAttributes typeAttributes { get; set; } = TypeAttributes.Public;
         public Type Praent { get; set; } = null;
+
+        public Guid GUID { get; set; } = Guid.NewGuid();
         public string className { get; set; }
         public IEnumerable<fieldDefineModel> propertyDefineModels { get; set; }
         public IEnumerable<MethodDefineModel> methodDefineModels { get; set; }

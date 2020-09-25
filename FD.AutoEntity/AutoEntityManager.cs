@@ -86,7 +86,7 @@ namespace FD.AutoEntity
             */
 
             AssemblyName aName = new AssemblyName(model.assemblyName);
-            AssemblyBuilder ab = AssemblyBuilder.DefineDynamicAssembly(aName, AssemblyBuilderAccess.RunAndCollect);
+            AssemblyBuilder ab = AssemblyBuilder.DefineDynamicAssembly(aName, AssemblyBuilderAccess.Run);
 
 
             // For a single-module assembly, the module name is usually
@@ -108,6 +108,29 @@ namespace FD.AutoEntity
                    model.className,
                     model.typeAttributes, model.Praent);
             }
+
+            // Define a default constructor that supplies a default value
+            // for the private field. For parameter types, pass the empty
+            // array of types or pass null.
+  
+
+            // Define a default constructor that supplies a default value
+            // for the private field. For parameter types, pass the empty
+            // array of types or pass null.
+            ConstructorBuilder ctor0 = tb.DefineConstructor(
+                MethodAttributes.Public,
+                CallingConventions.Standard,
+                Type.EmptyTypes);
+
+            ILGenerator ctor0IL = ctor0.GetILGenerator();
+            // For a constructor, argument zero is a reference to the new
+            // instance. Push it on the stack before pushing the default
+            // value on the stack, then call constructor ctor1.
+            ctor0IL.Emit(OpCodes.Ldarg_0);
+            ctor0IL.Emit(OpCodes.Ldc_I4_S, 42);
+            ctor0IL.Emit(OpCodes.Call, ctor0);
+            ctor0IL.Emit(OpCodes.Ret);
+
             foreach (var item in model.propertyDefineModels)
             {
                 FieldBuilder privatefield = tb.DefineField(
@@ -165,6 +188,7 @@ namespace FD.AutoEntity
                 pbNumber.SetSetMethod(mbNumberSetAccessor);
           
             }
+
             Type t = tb.CreateTypeInfo();
             AutoEntityList.Add(t);
             //// Add a private field of type int (Int32).

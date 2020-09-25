@@ -121,9 +121,13 @@ namespace FD.xunit
                 p.propertyDefineModels = fieldlist;
                 service.Create(p);
                 var t = service.AutoEntityList.Where(a => a.Name == "diff").FirstOrDefault();
-                var ppd = fieldlist.GetType();
-                var dpp = Type.GetType("System.Collections.Generic.List`1[[diff, MongoDynamic]]");
-                var dpps = Type.GetType("MongoDynamic.diff", false,true);
+                var tt = Activator.CreateInstance(t);
+                var dytt= tt.GetType();
+
+                var dpp = Type.GetType("Model.diff");
+                var dddea = Type.GetType("Model.diff, MongoDynamic, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", false, true);
+                var dpsssp = Type.GetType("System.Collections.Generic.List`1[[FD.Mongo.MongoModelMap, FD.Mongo]]");
+                
             }
 
 
