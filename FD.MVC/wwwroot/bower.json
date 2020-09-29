@@ -1,0 +1,17 @@
+{
+  "name": "wwwroot",
+  "homepage": "https://github.com/kloszhu/FD",
+  "authors": [
+    "klosszhu <314963663@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

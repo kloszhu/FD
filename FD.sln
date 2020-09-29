@@ -32,7 +32,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FD.DI", "FD.DI\FD.DI.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FD.HttpManager", "FD.HttpManager\FD.HttpManager.csproj", "{4A6352C2-3B9F-4543-8133-5C36C79B6371}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FD.AutoEntity", "FD.AutoEntity\FD.AutoEntity.csproj", "{B5F1ACAE-D264-4836-B992-DB71628FDB2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FD.AutoEntity", "FD.AutoEntity\FD.AutoEntity.csproj", "{B5F1ACAE-D264-4836-B992-DB71628FDB2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FD.MVC", "FD.MVC\FD.MVC.csproj", "{2D4697F3-4B55-4C50-AB3C-FDDD2A8473BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -92,6 +94,10 @@ Global
 		{B5F1ACAE-D264-4836-B992-DB71628FDB2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5F1ACAE-D264-4836-B992-DB71628FDB2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5F1ACAE-D264-4836-B992-DB71628FDB2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D4697F3-4B55-4C50-AB3C-FDDD2A8473BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D4697F3-4B55-4C50-AB3C-FDDD2A8473BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D4697F3-4B55-4C50-AB3C-FDDD2A8473BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D4697F3-4B55-4C50-AB3C-FDDD2A8473BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

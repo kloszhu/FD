@@ -8,6 +8,7 @@ using System.Text;
 using Xunit;
 using System.IO;
 using System.Reflection;
+using System.Runtime.Loader;
 
 namespace FD.xunit
 {
@@ -39,7 +40,7 @@ namespace FD.xunit
                }
               }";
 
-            var compilation = CSharpCompilation.Create(Guid.NewGuid().ToString() + ".dll")
+            var compilation = CSharpCompilation.Create("test")
                 .WithOptions(new CSharpCompilationOptions(
                     Microsoft.CodeAnalysis.OutputKind.DynamicallyLinkedLibrary,
                     usings: null,
@@ -56,8 +57,10 @@ namespace FD.xunit
             Directory.CreateDirectory("dd");
             var eResult = compilation.Emit("dd/test.dll");
             AssemblyName assembly = AssemblyName.GetAssemblyName("dd/test.dll");
-          
-             var dpsssp = Type.GetType("System.Collections.Generic.List`1[[tes, test]]");
+  
+            var asm=  AssemblyLoadContext.Default.LoadFromAssemblyPath("E:/Project/FD/FD.xunit/bin/Debug/netcoreapp3.1/dd/test.dll");
+            var dds = Type.GetType("test.tes, test");
+             var dpsssp = Type.GetType("System.Collections.Generic.List`1[[test.tes, test]]");
         }
     }
 }
