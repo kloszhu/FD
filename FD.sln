@@ -40,6 +40,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FD.React", "FD.React\FD.Rea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FD.ML", "FD.ML\FD.ML.csproj", "{B2B75D21-B2BA-437D-9A98-86EA513C8107}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FDML.Model", "FDML.Model\FDML.Model.csproj", "{65BFA589-0718-4645-9E93-8EC5C0AB3E22}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FDML.ConsoleApp", "FDML.ConsoleApp\FDML.ConsoleApp.csproj", "{180FDF40-CABD-4625-93AB-F09A5C2C3065}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,6 +114,14 @@ Global
 		{B2B75D21-B2BA-437D-9A98-86EA513C8107}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2B75D21-B2BA-437D-9A98-86EA513C8107}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2B75D21-B2BA-437D-9A98-86EA513C8107}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65BFA589-0718-4645-9E93-8EC5C0AB3E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65BFA589-0718-4645-9E93-8EC5C0AB3E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65BFA589-0718-4645-9E93-8EC5C0AB3E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65BFA589-0718-4645-9E93-8EC5C0AB3E22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{180FDF40-CABD-4625-93AB-F09A5C2C3065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{180FDF40-CABD-4625-93AB-F09A5C2C3065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{180FDF40-CABD-4625-93AB-F09A5C2C3065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{180FDF40-CABD-4625-93AB-F09A5C2C3065}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
