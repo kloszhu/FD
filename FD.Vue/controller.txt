@@ -16,6 +16,48 @@ export let home = {
     })
   },
 }
+export let sharpbase = {
+  getget: function()  
+{
+    return request({
+    url: '/api/sharpbase/get',
+      method: 'get',
+      
+    })
+  },
+  getget: function(parameter)  
+{
+    return request({
+    url: '/api/sharpbase/get',
+      method: 'get',
+      data: parameter 
+    })
+  },
+  postpost: function(parameter)  
+{
+    return request({
+    url: '/api/sharpbase/post',
+      method: 'post',
+      data: parameter 
+    })
+  },
+  putput: function(parameter)  
+{
+    return request({
+    url: '/api/sharpbase/put',
+      method: 'put',
+      data: parameter 
+    })
+  },
+  deletedelete: function(parameter)  
+{
+    return request({
+    url: '/api/sharpbase/delete',
+      method: 'delete',
+      data: parameter 
+    })
+  },
+}
 export let user = {
   postlogin: function(parameter)  
 {

@@ -278,7 +278,7 @@ namespace FD.AutoEntity
             // a reference to the assembly, and use the MyDynamicType type.
             //
             //ab.save(aName.Name + ".dll");
-
+           
             // Because AssemblyBuilderAccess includes Run, the code can be
             // executed immediately. Start by getting reflection objects for
             // the method and the property.
